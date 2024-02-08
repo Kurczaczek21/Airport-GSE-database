@@ -1,0 +1,9 @@
+CREATE TABLE Uzytkownicy (
+    Login VARCHAR(255) PRIMARY KEY,
+    Haslo_hash VARCHAR(255) NOT NULL,
+    Opis VARCHAR(255) DEFAULT '%BRAK%',
+    Id_uprawn INT NOT NULL,
+    Linia VARCHAR(255) DEFAULT 'LOTNISKO',
+    FOREIGN KEY (Id_uprawn) REFERENCES Uprawnienia(Id_uprawn) ON UPDATE CASCADE,
+    FOREIGN KEY (Linia) REFERENCES Linie_lotnicze(Linia) ON UPDATE CASCADE ON DELETE CASCADE
+);
