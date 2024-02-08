@@ -1,0 +1,14 @@
+create function obliczliczbeprzyczepek(p_sredniawagabagazu_kg integer) returns integer
+    language plpgsql
+as
+$$
+DECLARE
+    LiczbaPrzyczep INT;
+BEGIN
+    LiczbaPrzyczep := CEIL(p_SredniaWagaBagazu_Kg / 400.0);
+    RETURN LiczbaPrzyczep;
+END;
+$$;
+
+alter function obliczliczbeprzyczepek(integer) owner to postgres;
+
